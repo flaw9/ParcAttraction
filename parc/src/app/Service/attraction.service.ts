@@ -8,20 +8,24 @@ import { MessageInterface } from '../Interface/message.interface';
   providedIn: 'root',
 })
 export class AttractionService {
+  private url: string = "http://127.0.0.1:5000/attraction";
 
   constructor(private dataService: DataService) {
 
   }
 
   public getAllAttraction() : Observable<AttractionInterface[]> {
-    const url = "http://127.0.0.1:5000/attraction"
-    const data = this.dataService.getData(url);
+    const data = this.dataService.getData(this.url);
+    return data as Observable<AttractionInterface[]>;
+  }
+
+  public getAllAttractionVisible(): Observable<AttractionInterface[]> {
+    const data = this.dataService.getData(this.url + "/visible");
     return data as Observable<AttractionInterface[]>;
   }
 
   public postAttraction(attraction: AttractionInterface): Observable<MessageInterface> {
-    const url = "http://127.0.0.1:5000/attraction";
-    const data = this.dataService.postData(url, attraction);
+    const data = this.dataService.postData(this.url, attraction);
     return data as Observable<MessageInterface>;
   }
 }
