@@ -29,7 +29,7 @@ def addAttraction():
 
 @app.get('/attraction')
 def getAllAttraction():
-    result = attraction.get_all_attraction()
+    result = attraction.get_all_visible_attraction()
     return result, 200
 
 @app.get('/attraction/<int:index>')

@@ -29,6 +29,11 @@ def get_all_attraction():
     
     return json
 
+def get_all_visible_attraction():
+    json = req.select_from_db("SELECT * FROM attraction WHERE visible = 1")
+    
+    return json
+
 def get_attraction(id):
     if (not id):
         return False
