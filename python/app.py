@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import json
 
 import request.request as req
 import controller.auth.auth as user
@@ -64,6 +65,7 @@ def login():
     cur.execute(requete)
     records = cur.fetchall()
     conn.close()
+  
 
     result = jsonify({"token": user.encode_auth_token(list(records[0])[0]), "name": json['name']})
     return result, 200
