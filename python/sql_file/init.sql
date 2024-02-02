@@ -25,6 +25,6 @@ CREATE TABLE avis (
     primary key(attraction_id),
     texte varchar(255) not null,
     note int not null,
-    nom varchar(255) null,
-    prenom varchar(255) null
+    nom varchar(255),
+    prenom varchar(255) 
 );
