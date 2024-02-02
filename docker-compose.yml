@@ -24,7 +24,7 @@ services:
     # @see https://github.com/Actency/docker-mysql
     image: mariadb:latest
     volumes:
-      - /python:/var/www/html/api
+      - ./python:/var/www/html/api
     ports:
       - 3306:3306
     environment:
