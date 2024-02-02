@@ -29,6 +29,16 @@ def addAttraction():
 
 @app.get('/attraction')
 def getAllAttraction():
+    # On vérifie si l'utilisateur est connecté
+    checkToken = user.check_token(request)
+    if (checkToken != True):
+        return checkToken
+    else:
+        result = attraction.get_all_attraction()
+        return result, 200
+
+@app.get('/attraction/visible')
+def getAllVisibleAttraction():
     result = attraction.get_all_visible_attraction()
     return result, 200
 
