@@ -11,11 +11,12 @@
       </div>
     </div>
     <ng-container *ngFor="let attraction of attractions | async;">
-      <div class="attraction">
-        <span>{{attraction.nom}}</span>
-        <span>{{attraction.description}}</span>
-        <span>{{attraction.difficulte}} / 5</span>
-      </div>
+    </ng-container *ngIf="attraction.visible==true">
+        <div class="attraction">
+          <span>{{attraction.nom}}</span>
+          <span>{{attraction.description}}</span>
+          <span>{{attraction.difficulte}} / 5</span>
+        </div>
     </ng-container>
   </mat-card-content>
 </mat-card>
