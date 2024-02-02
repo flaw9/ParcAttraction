@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Ajouter un avis</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form>
+      <label for="nom">Nom :</label>
+      <input type="text" id="nom" name="nom" [(ngModel)]="nom" required>
+
+      <label for="prenom">Prénom :</label>
+      <input type="text" id="prenom" name="prenom" [(ngModel)]="prenom" required>
+
+      <label for="note">Note :</label>
+      <input type="number" id="note" name="note" [(ngModel)]="note" required>
+
+      <label for="avis">Avis :</label>
+      <textarea id="avis" name="avis" [(ngModel)]="avis" required></textarea>
+
+      <button type="submit" (click)="ajouterAvis()">Ajouter Avis</button>
+    </form>
+  </mat-card-content>
+</mat-card>

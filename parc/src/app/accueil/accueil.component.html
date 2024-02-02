@@ -11,11 +11,12 @@
       </div>
     </div>
     <ng-container *ngFor="let attraction of attractions | async;">
-    </ng-container *ngIf="attraction.visible==true">
+    </ng-container *ngIf="attraction.visible==true"> <!-- Ajout de la condition pour afficher les attractions visibles -->
         <div class="attraction">
           <span>{{attraction.nom}}</span>
           <span>{{attraction.description}}</span>
           <span>{{attraction.difficulte}} / 5</span>
+          <a routerLink="/avis/{{attraction.id}}">Avis</a> <!-- Ajout des avis -->
         </div>
     </ng-container>
   </mat-card-content>
