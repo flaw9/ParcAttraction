@@ -32,6 +32,11 @@ def getAllAttraction():
     result = attraction.get_all_attraction()
     return result, 200
 
+@app.get('/attraction/visible')
+def getVisibleAttraction():
+    result = attraction.get_visible_attraction()
+    return result, 200
+
 @app.get('/attraction/<int:index>')
 def getAttraction(index):
     result = attraction.get_attraction(index)
