@@ -4,6 +4,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthService } from './Service/auth.service';
 import { inject } from '@angular/core';
 import { AccueilComponent } from './accueil/accueil.component';
+import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 export const utilisateurEstConnecte = () => {
   const authService = inject(AuthService);
@@ -32,5 +33,5 @@ export const routes: Routes = [
       path: 'accueil',
       component: AccueilComponent,
     },
-    { path: '',   redirectTo: '/accueil', pathMatch: 'full' }, 
+    { path: '**', component: PageNotFoundComponent, pathMatch: 'full' }, 
 ];
