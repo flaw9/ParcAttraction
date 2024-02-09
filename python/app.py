@@ -4,6 +4,7 @@ from flask_cors import CORS
 import request.request as req
 import controller.auth.auth as user
 import controller.attraction as attraction
+import controller.critique as critique
 
 app = Flask(__name__)
 CORS(app)
@@ -60,6 +61,14 @@ def deleteAttraction(index):
         return "Element supprimé.", 200
     return jsonify({"message": "Erreur lors de la suppression."}), 500
 
+@app.get('/attraction/<int:index>/critique')
+def getCritiqueForAttraction(index):
+    if (attraction.get_attraction(index) == []):
+        return jsonify({"message": "Aucune attraction trouvée."}), 404
+
+    result = critique.get_critique_for_attraction(index)
+    return result, 200
+
 @app.post('/login')
 def login():
     json = request.get_json()
@@ -75,12 +84,4 @@ def login():
     conn.close()
 
     result = jsonify({"token": user.encode_auth_token(list(records[0])[0]), "name": json['name']})
-    return result, 200
-
-@app.get('/critique/attraction/<int:index>')
-def getCritiqueForAttraction(index):
-    if (attraction.get_attraction(index) == []):
-        return jsonify({"message": "Aucune attraction trouvée."}), 404
-
-    result = critique.get_critique_for_attraction(index)
     return result, 200
