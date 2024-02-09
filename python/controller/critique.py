@@ -47,8 +47,8 @@ def get_critique_for_attraction(id):
     SELECT critique_id, note, commentaire, critique.nom as critique_nom,
     prenom as critique_prenom, attraction.nom as attraction_nom
     FROM critique
-    LEFT JOIN attraction ON critique.attraction_id = attraction.attraction_id
-    WHERE critique.attraction_id = ?;
+    RIGHT JOIN attraction ON critique.attraction_id = attraction.attraction_id
+    WHERE attraction.attraction_id = ?;
     """
     json = req.select_from_db(query, (id,))
 
