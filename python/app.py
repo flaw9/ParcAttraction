@@ -76,3 +76,11 @@ def login():
 
     result = jsonify({"token": user.encode_auth_token(list(records[0])[0]), "name": json['name']})
     return result, 200
+
+@app.get('/critique/attraction/<int:index>')
+def getCritiqueForAttraction(index):
+    if (attraction.get_attraction(index) == []):
+        return jsonify({"message": "Aucune attraction trouvée."}), 404
+
+    result = critique.get_critique_for_attraction(index)
+    return result, 200
