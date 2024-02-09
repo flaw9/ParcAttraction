@@ -43,6 +43,13 @@ def get_critique_for_attraction(id):
     if (not id):
         return False
 
-    json = req.select_from_db("SELECT * FROM critique WHERE attraction_id = ?", (id,))
+    query = """
+    SELECT critique_id, note, commentaire, critique.nom as critique_nom,
+    prenom as critique_prenom, attraction.nom as attraction_nom
+    FROM critique
+    LEFT JOIN attraction ON critique.attraction_id = attraction.attraction_id
+    WHERE critique.attraction_id = ?;
+    """
+    json = req.select_from_db(query, (id,))
 
     return json

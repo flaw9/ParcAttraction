@@ -63,12 +63,7 @@ def deleteAttraction(index):
 
 @app.get('/attraction/<int:index>/critique')
 def getCritiqueForAttraction(index):
-    attr = attraction.get_attraction(index)
-    if (attr == []):
-        return jsonify({"message": "Aucune attraction trouvée."}), 404
-
     result = critique.get_critique_for_attraction(index)
-    result[0]["attraction_nom"] = attr["nom"]
     return result, 200
 
 @app.post('/login')
