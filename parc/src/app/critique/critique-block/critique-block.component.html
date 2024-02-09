@@ -1,4 +1,4 @@
-<div>
+<div *ngIf="isValidCritique()">
   <div>
     {{ critique?.prenom ?? 'Anonyme' }} {{ critique?.nom ?? '' }} a écrit :
   </div>
