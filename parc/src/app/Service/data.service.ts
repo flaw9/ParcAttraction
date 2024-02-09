@@ -22,4 +22,12 @@ export class DataService {
     let result = this.http.delete(url);
     return result;
   }
+  public putData(url: string, data: any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put(url, data, { headers }).pipe(
+      catchError(error => {
+        throw 'Error in putData. Details: ' + error;
+      })
+    );
+  }
 }

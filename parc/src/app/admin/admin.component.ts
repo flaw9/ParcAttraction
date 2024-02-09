@@ -8,7 +8,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -59,5 +59,13 @@ export class AdminComponent {
         visible: new FormControl(true)
       })
     );
+  }
+
+  public onVisibilityChange(checked: boolean, formulaireAttraction: FormGroup) {
+    const attraction_id = formulaireAttraction.get('attraction_id')?.value;
+    this.attractionService.updateAttractionVisibility(attraction_id, checked).subscribe(result => {
+      // Gérer la réponse si nécessaire
+      console.log(result);
+    });
   }
 }
