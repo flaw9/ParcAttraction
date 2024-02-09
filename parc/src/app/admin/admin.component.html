@@ -34,7 +34,7 @@
 
           <mat-slide-toggle class="champ" formControlName="visible">Element visible</mat-slide-toggle>
 
-          <button mat-button (click)="onSubmit(formulaireAttraction)" class="champ">Enregistrer</button>
+          <button mat-button (click)="onSubmit(formulaireAttraction)" class="champ" [disabled]="!formulaireAttraction.dirty">Enregistrer</button>
         </div>
       </ng-container>
     </ng-container>
