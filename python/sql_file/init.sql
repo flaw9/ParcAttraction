@@ -18,13 +18,14 @@ CREATE TABLE users (
     password varchar(255) not null
 );
 
-DROP TABLE IF EXISTS avis;
+-- DROP TABLE IF EXISTS avis;
 
-CREATE TABLE avis (
-    attraction_id int auto_increment,
-    primary key(attraction_id),
-    texte varchar(255) not null,
-    note int not null,
-    nom varchar(255),
-    prenom varchar(255) 
-);
+-- CREATE TABLE avis (
+--     avis_id int auto_increment,
+--     primary key (avis_id),
+--     foreign key(attraction_id),
+--     texte varchar(255) not null,
+--     note int not null,
+--     nom varchar(255),
+--     prenom varchar(255) 
+-- );

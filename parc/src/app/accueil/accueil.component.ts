@@ -19,3 +19,4 @@ export class AccueilComponent {
   
   public attractions: Observable<AttractionInterface[]> = this.attractionService.getAllAttraction()
 }
+
