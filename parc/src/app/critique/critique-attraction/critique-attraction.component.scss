@@ -1,0 +1,10 @@
+.critique-block-container {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+
+.critique-admin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

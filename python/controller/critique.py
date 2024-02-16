@@ -26,8 +26,13 @@ def add_critique(data):
     if (not "attraction_id" in data or data["attraction_id"] is None or data["attraction_id"] == "-1"):
         return False
 
-    requete = "INSERT INTO critique (note, commentaire, attraction_id, nom, prenom) VALUES (?, ?, ?, ?, ?);"
-    id = req.insert_in_db(requete, (data["note"], data["commentaire"], data["attraction_id"], data["nom"], data["prenom"]))
+    if ("critique_id" in data and data["critique_id"]):
+        requete = "UPDATE critique SET note=?, commentaire=?, attraction_id=?, nom=?, prenom=? WHERE critique_id = ?"
+        req.insert_in_db(requete, (data["note"], data["commentaire"], data["attraction_id"], data["nom"], data["prenom"], data["critique_id"]))
+        id = data['critique_id']
+    else:
+        requete = "INSERT INTO critique (note, commentaire, attraction_id, nom, prenom) VALUES (?, ?, ?, ?, ?);"
+        id = req.insert_in_db(requete, (data["note"], data["commentaire"], data["attraction_id"], data["nom"], data["prenom"]))
 
     return id
 

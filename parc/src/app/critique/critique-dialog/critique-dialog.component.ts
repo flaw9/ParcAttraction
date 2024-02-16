@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {MatButton} from "@angular/material/button";
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
@@ -21,12 +21,14 @@ import {AttractionService} from "../../Service/attraction.service";
   templateUrl: './critique-dialog.component.html',
   styleUrl: './critique-dialog.component.scss'
 })
-export class CritiqueDialogComponent {
+export class CritiqueDialogComponent implements OnInit {
   public formControl: FormGroup = new FormGroup({
     note: new FormControl('', [Validators.required, Validators.min(0), Validators.max(20)]),
     commentaire: new FormControl('', [Validators.required]),
     nom: new FormControl(''),
-    prenom: new FormControl('')
+    prenom: new FormControl(''),
+    critique_id: new FormControl(''),
+    attraction_nom: new FormControl('')
   });
   public data: any;
   
@@ -34,6 +36,12 @@ export class CritiqueDialogComponent {
               @Inject(MAT_DIALOG_DATA) data: any,
               private dialogRef: MatDialogRef<CritiqueDialogComponent>) {
     this.data = data;
+  }
+  
+  ngOnInit(): void {
+    if (this.data.critique) {
+      this.formControl.setValue(this.data.critique);
+    }
   }
 
   public submit() {

@@ -8,6 +8,7 @@ import {CritiqueBlockComponent} from "../critique-block/critique-block.component
 import {MatButton} from "@angular/material/button";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {CritiqueDialogComponent} from "../critique-dialog/critique-dialog.component";
+import {AuthService} from "../../Service/auth.service";
 
 // Page comportant les critiques pour une attraction donnée
 @Component({
@@ -26,8 +27,11 @@ export class CritiqueAttractionComponent implements OnInit {
   
   constructor(private attractionService: AttractionService,
               private route: ActivatedRoute,
-              private dialog: MatDialog) {
+              private dialog: MatDialog,
+              private authService: AuthService) {
   }
+  
+  isLoggedIn: boolean = this.authService.isLoggedIn;
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -46,10 +50,10 @@ export class CritiqueAttractionComponent implements OnInit {
     return this.critiques ? this.critiques[0]?.attraction_nom : '';
   }
 
-  openDialog() {
+  openDialog(critique: CritiqueInterface | undefined = undefined) {
     const dialogRef = this.dialog.open(CritiqueDialogComponent, {
       width: '500px',
-      data: {attraction_id: this.attraction_id ?? -1}
+      data: {attraction_id: this.attraction_id ?? -1, critique: critique}
     });
     
     dialogRef.afterClosed().subscribe(result => {
