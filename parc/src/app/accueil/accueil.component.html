@@ -8,17 +8,17 @@
         <span>Nom de l'attraction</span>
         <span>Description de l'attraction</span>
         <span>Difficulté de l'attraction / 5</span>
+        <span></span> <!-- Espace pour le bouton "Avis" -->
       </div>
     </div>
     <ng-container *ngFor="let attraction of attractions | async;">
       <ng-container *ngIf="attraction.visible==true"> <!-- Ajout de la condition pour afficher les attractions visibles-->
         <div class="attraction">
-          <span>{{attraction.nom}}</span>
+          <a routerLink="/avis"><span>{{attraction.nom}}</span></a>
           <span>{{attraction.description}}</span>
           <span>{{attraction.difficulte}} / 5</span>
-          <!-- <a routerLink="/avis/{{attraction.id}}">Avis</a> Ajout des avis -->
         </div>
+      </ng-container>
     </ng-container>
-  </ng-container>
   </mat-card-content>
 </mat-card>
