@@ -37,7 +37,6 @@ export class CritiqueAttractionComponent implements OnInit {
   }
   
   getCritiques(): void {
-    console.log("Coucou");
     this.attractionService.getCritique(this.attraction_id ?? -1).subscribe(critiques => {
       this.critiques = critiques;
     });

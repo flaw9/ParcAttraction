@@ -1,8 +1,8 @@
-<div *ngIf="isValidCritique()">
-  <div>
-    {{ getDisplayedName() }} a écrit :
-  </div>
-  <div>
+<div *ngIf="isValidCritique()" class="critique-container">
+  <span class="critique-name">
+    <b> {{ getDisplayedName() | titlecase }} </b> a écrit :
+  </span>
+  <div class="critique-main-block">
     {{ critique?.note }}/20
     {{ critique?.commentaire }}
   </div>

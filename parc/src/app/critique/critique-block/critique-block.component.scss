@@ -1,0 +1,17 @@
+.critique-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+
+.critique-name {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}

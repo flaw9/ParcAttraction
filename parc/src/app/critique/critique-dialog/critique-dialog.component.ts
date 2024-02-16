@@ -41,7 +41,6 @@ export class CritiqueDialogComponent {
     
     this.formControl.addControl('attraction_id', new FormControl(this.data.attraction_id));
     this.attractionService.postCritique(this.formControl.value).subscribe((res) => {
-      console.log(res);
       this.dialogRef.close( { data: res });
     });
   }

@@ -3,7 +3,7 @@
     <mat-card-title>Critiques pour l'attraction {{ getAttractionName() }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <button mat-raised-button (click)="openDialog()">Ajouter</button>
+    <button mat-stroked-button (click)="openDialog()">Ajouter</button>
     <ng-container *ngFor="let critique of critiques">
       <app-critique-block [critique]="critique"></app-critique-block>
     </ng-container>
