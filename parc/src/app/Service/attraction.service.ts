@@ -34,4 +34,9 @@ export class AttractionService {
     const data = this.dataService.getData(this.url + "/" + attraction_id + "/critique");
     return data as Observable<CritiqueInterface[]>;
   }
+  
+  public postCritique(critique: CritiqueInterface): Observable<MessageInterface> {
+    const data = this.dataService.postData(this.url + "/critique", critique);
+    return data as Observable<MessageInterface>;
+  }
 }

@@ -16,4 +16,11 @@ export class CritiqueBlockComponent {
   isValidCritique() {
     return this.critique?.note && this.critique?.commentaire;
   }
+
+  getDisplayedName() {
+    if (!this.critique?.nom && !this.critique?.prenom) {
+      return "Anonyme";
+    }
+    return this.critique?.prenom + " " + this.critique?.nom;
+  }
 }

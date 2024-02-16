@@ -9,6 +9,7 @@ import {MatButton} from "@angular/material/button";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {CritiqueDialogComponent} from "../critique-dialog/critique-dialog.component";
 
+// Page comportant les critiques pour une attraction donnée
 @Component({
   selector: 'app-critique-attraction',
   standalone: true,
@@ -21,6 +22,7 @@ import {CritiqueDialogComponent} from "../critique-dialog/critique-dialog.compon
 export class CritiqueAttractionComponent implements OnInit {
   
   public critiques: CritiqueInterface[] | undefined;
+  public attraction_id: number | undefined;
   
   constructor(private attractionService: AttractionService,
               private route: ActivatedRoute,
@@ -29,9 +31,15 @@ export class CritiqueAttractionComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.attractionService.getCritique(params['id']).subscribe(critiques => {
-        this.critiques = critiques;
-      });
+      this.attraction_id = params['id'];
+      this.getCritiques();
+    });
+  }
+  
+  getCritiques(): void {
+    console.log("Coucou");
+    this.attractionService.getCritique(this.attraction_id ?? -1).subscribe(critiques => {
+      this.critiques = critiques;
     });
   }
 
@@ -40,8 +48,13 @@ export class CritiqueAttractionComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(CritiqueDialogComponent, {
-      width: '250px'
+    const dialogRef = this.dialog.open(CritiqueDialogComponent, {
+      width: '500px',
+      data: {attraction_id: this.attraction_id ?? -1}
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      if (result?.data?.result) this.getCritiques();
     });
   }
 }

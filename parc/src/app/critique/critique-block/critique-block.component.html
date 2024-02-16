@@ -1,6 +1,6 @@
 <div *ngIf="isValidCritique()">
   <div>
-    {{ critique?.prenom ?? 'Anonyme' }} {{ critique?.nom ?? '' }} a écrit :
+    {{ getDisplayedName() }} a écrit :
   </div>
   <div>
     {{ critique?.note }}/20

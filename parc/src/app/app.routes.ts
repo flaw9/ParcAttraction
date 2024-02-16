@@ -38,5 +38,14 @@ export const routes: Routes = [
     path: 'attraction/:id/critique',
     component: CritiqueAttractionComponent,
   },
-  {path: '**', component: PageNotFoundComponent, pathMatch: 'full'},
+  {
+    path: '',
+    redirectTo: '/accueil',
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+    pathMatch: 'full'
+  }
 ];

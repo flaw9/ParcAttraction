@@ -23,7 +23,7 @@ def add_critique(data):
     if (not "commentaire" in data or data["commentaire"] == ""):
         return False
 
-    if (not "attraction_id" in data or data["attraction_id"] is None):
+    if (not "attraction_id" in data or data["attraction_id"] is None or data["attraction_id"] == "-1"):
         return False
 
     requete = "INSERT INTO critique (note, commentaire, attraction_id, nom, prenom) VALUES (?, ?, ?, ?, ?);"
@@ -44,8 +44,8 @@ def get_critique_for_attraction(id):
         return False
 
     query = """
-    SELECT critique_id, note, commentaire, critique.nom as critique_nom,
-    prenom as critique_prenom, attraction.nom as attraction_nom
+    SELECT critique_id, note, commentaire, critique.nom as nom,
+    prenom, attraction.nom as attraction_nom
     FROM critique
     RIGHT JOIN attraction ON critique.attraction_id = attraction.attraction_id
     WHERE attraction.attraction_id = ?;

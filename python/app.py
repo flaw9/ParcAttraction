@@ -63,8 +63,18 @@ def deleteAttraction(index):
 
 @app.get('/attraction/<int:index>/critique')
 def getCritiqueForAttraction(index):
+    if (index < 0):
+        return jsonify({"message": "Index incorrect."}), 400
     result = critique.get_critique_for_attraction(index)
     return result, 200
+
+@app.post('/attraction/critique')
+def addCritiqueForAttraction():
+    json = request.get_json()
+    retour = critique.add_critique(json)
+    if (retour):
+        return jsonify({"message": "Element ajouté.", "result": retour}), 200
+    return jsonify({"message": "Erreur lors de l'ajout.", "result": retour}), 500
 
 @app.post('/login')
 def login():
