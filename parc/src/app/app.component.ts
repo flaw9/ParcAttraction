@@ -24,4 +24,8 @@ export class AppComponent {
     this.router.navigate(["/login"]);
   }
 
+  login(){
+    this.router.navigate(["/login"]);
+  }
+
 }
