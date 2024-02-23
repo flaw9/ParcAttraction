@@ -26,6 +26,7 @@ export class CritiqueAttractionComponent implements OnInit {
   
   public critiques: CritiqueInterface[] | undefined;
   public attraction_id: number | undefined;
+  public mean: number | undefined;
   
   constructor(private attractionService: AttractionService,
               private route: ActivatedRoute,
@@ -46,7 +47,8 @@ export class CritiqueAttractionComponent implements OnInit {
   
   getCritiques(): void {
     this.attractionService.getCritique(this.attraction_id ?? -1).subscribe(critiques => {
-      this.critiques = critiques;
+      this.critiques = critiques.critiques;
+      this.mean = critiques.mean;
     });
   }
 

@@ -49,7 +49,6 @@ def getAttraction(index):
 
 @app.delete('/attraction/<int:index>')
 def deleteAttraction(index):
-
     # Fonction vérif token
     checkToken = user.check_token(request)
     if (checkToken != True):
@@ -66,6 +65,15 @@ def getCritiqueForAttraction(index):
     if (index < 0):
         return jsonify({"message": "Index incorrect."}), 400
     result = critique.get_critique_for_attraction(index)
+
+    # Get the mean note
+    if (len(result) > 0):
+        total = 0
+        for crit in result:
+            total += crit["note"]
+        mean = total / len(result)
+        result = {"mean": mean, "critiques": result}
+
     return result, 200
 
 @app.post('/attraction/critique')

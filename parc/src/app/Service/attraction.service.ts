@@ -4,6 +4,7 @@ import { DataService } from './data.service';
 import { AttractionInterface } from '../Interface/attraction.interface';
 import { MessageInterface } from '../Interface/message.interface';
 import { CritiqueInterface } from "../Interface/critique.interface";
+import {CritiqueMeanInterface} from "../Interface/CritiqueMeanInterface";
 
 @Injectable({
   providedIn: 'root',
@@ -30,9 +31,9 @@ export class AttractionService {
     return data as Observable<MessageInterface>;
   }
   
-  public getCritique(attraction_id: number): Observable<CritiqueInterface[]> {
+  public getCritique(attraction_id: number): Observable<CritiqueMeanInterface> {
     const data = this.dataService.getData(this.url + "/" + attraction_id + "/critique");
-    return data as Observable<CritiqueInterface[]>;
+    return data as Observable<CritiqueMeanInterface>;
   }
   
   public postCritique(critique: CritiqueInterface): Observable<MessageInterface> {
