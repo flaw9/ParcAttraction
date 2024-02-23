@@ -5,11 +5,15 @@
   <mat-card-content>
     <button mat-stroked-button (click)="openDialog()">Ajouter</button>
     <div *ngFor="let critique of critiques" class="critique-block-container">
-      <app-critique-block [critique]="critique"></app-critique-block>
-      <div *ngIf="isLoggedIn" class="critique-admin-container">
-        <button mat-stroked-button (click)="openDialog(critique)">Modifier</button>
-        <button mat-stroked-button color="warn" (click)="deleteCritique(critique)">Supprimer</button>
-      </div>
+      <ng-container *ngIf="critique.critique_id !== null">
+        <app-critique-block [critique]="critique"></app-critique-block>
+        <ng-container *ngIf="isLoggedIn">
+          <div class="critique-admin-container">
+            <button mat-stroked-button (click)="openDialog(critique)">Modifier</button>
+            <button mat-stroked-button color="warn" (click)="deleteCritique(critique)">Supprimer</button>
+          </div>
+        </ng-container>
+      </ng-container>
     </div>
   </mat-card-content>
 </mat-card>

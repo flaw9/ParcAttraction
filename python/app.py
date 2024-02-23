@@ -76,6 +76,18 @@ def addCritiqueForAttraction():
         return jsonify({"message": "Element ajouté.", "result": retour}), 200
     return jsonify({"message": "Erreur lors de l'ajout.", "result": retour}), 500
 
+@app.delete('/critique/<int:index>')
+def deleteCritique(index):
+    checkToken = user.check_token(request)
+    if (checkToken != True):
+        return checkToken
+        
+    if (index < 0):
+        return jsonify({"message": "Index incorrect."}), 400
+    if (critique.delete_critique(index)):
+        return jsonify({"message": "Element supprimé."}), 200
+    return jsonify({"message": "Erreur lors de la suppression."}), 500
+
 @app.post('/login')
 def login():
     json = request.get_json()

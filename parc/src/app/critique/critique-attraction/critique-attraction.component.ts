@@ -9,6 +9,8 @@ import {MatButton} from "@angular/material/button";
 import {MatDialog, MatDialogModule} from "@angular/material/dialog";
 import {CritiqueDialogComponent} from "../critique-dialog/critique-dialog.component";
 import {AuthService} from "../../Service/auth.service";
+import {CritiqueService} from "../../Service/critique.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 // Page comportant les critiques pour une attraction donnée
 @Component({
@@ -28,7 +30,9 @@ export class CritiqueAttractionComponent implements OnInit {
   constructor(private attractionService: AttractionService,
               private route: ActivatedRoute,
               private dialog: MatDialog,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private critiqueService: CritiqueService,
+              private snackBar: MatSnackBar) {
   }
   
   isLoggedIn: boolean = this.authService.isLoggedIn;
@@ -57,7 +61,22 @@ export class CritiqueAttractionComponent implements OnInit {
     });
     
     dialogRef.afterClosed().subscribe(result => {
+      if (result?.data?.message) {
+        this.snackBar.open(result?.data?.message, '', {
+          duration: 2000,
+        });
+      }
       if (result?.data?.result) this.getCritiques();
+    });
+  }
+
+  deleteCritique(critique: CritiqueInterface) {
+    let id = critique.critique_id ?? -1;
+    this.critiqueService.deleteCritique(id).subscribe((res) => {
+      this.snackBar.open(res.message, '', {
+        duration: 2000,
+      });
+      this.getCritiques();
     });
   }
 }
