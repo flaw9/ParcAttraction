@@ -1,8 +1,13 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>
+    <mat-card-title class="title-container">
       Critiques pour l'attraction {{ getAttractionName() }} |
-      Note moyenne : {{mean | number:'1.0-2'}}
+      Note moyenne :
+  
+      <div class="display" [matTooltip]="mean ?? 0 | number: '1.0-2' | json">
+        <div class="progress"></div>
+        <div class="progress_1" [style.background-size]="100 - (mean ?? 20) * 5 + '% 100%, 100% 100%'"></div>
+      </div>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>

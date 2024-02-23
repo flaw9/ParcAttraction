@@ -14,7 +14,7 @@ export class CritiqueBlockComponent {
   @Input() critique: CritiqueInterface | undefined;
 
   isValidCritique() {
-    return this.critique?.note && this.critique?.commentaire;
+    return this.critique?.note !== null && this.critique?.commentaire !== null;
   }
 
   getDisplayedName() {
