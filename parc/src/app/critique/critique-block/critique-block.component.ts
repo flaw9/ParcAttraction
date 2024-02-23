@@ -21,6 +21,6 @@ export class CritiqueBlockComponent {
     if (!this.critique?.nom && !this.critique?.prenom) {
       return "Anonyme";
     }
-    return this.critique?.prenom + " " + this.critique?.nom;
+    return this.critique?.nom + " " + this.critique?.prenom;
   }
 }
