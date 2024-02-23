@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Avis de l'attractionm</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="attraction-title">
+      <div class="attraction">
+        <span>Nom de l'attraction</span>
+        <span>Description de l'attraction</span>
+        <span>Difficulté de l'attraction / 5</span>
+        <span>Regarder les critiques</span>
+      </div>
+    </div>
+    <ng-container *ngFor="let avi of avis | async;">
+      <div class="avis">
+        <span>{{avi.prenom}}</span>
+        <span>{{avi.nom}}</span>
+        <span>{{avi.texte}}</span>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

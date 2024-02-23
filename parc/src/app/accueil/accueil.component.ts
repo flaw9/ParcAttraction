@@ -4,18 +4,21 @@ import { CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import { AttractionInterface } from '../Interface/attraction.interface';
 import { MatCardModule } from '@angular/material/card';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-accueil',
   standalone: true,
-  imports: [CommonModule, MatCardModule],
+  imports: [CommonModule, MatCardModule, RouterLink],
   templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.scss'
 })
 export class AccueilComponent {
 
   constructor(public attractionService: AttractionService)
-  {}
+  {
+    
+  }
   
   public attractions: Observable<AttractionInterface[]> = this.attractionService.getAllAttractionVisible()
 }

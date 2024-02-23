@@ -8,6 +8,7 @@
         <span>Nom de l'attraction</span>
         <span>Description de l'attraction</span>
         <span>Difficulté de l'attraction / 5</span>
+        <span>Regarder les critiques</span>
       </div>
     </div>
     <ng-container *ngFor="let attraction of attractions | async;">
@@ -15,6 +16,7 @@
         <span>{{attraction.nom}}</span>
         <span>{{attraction.description}}</span>
         <span>{{attraction.difficulte}} / 5</span>
+        <span><button mat-stroked-button routerLink="/attraction/{{attraction.attraction_id}}/avis">Avis</button></span>
       </div>
     </ng-container>
   </mat-card-content>
