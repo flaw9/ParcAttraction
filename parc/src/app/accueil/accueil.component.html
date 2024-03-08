@@ -1,14 +1,14 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Bienvenue sur le site internet du parc d'attraction</mat-card-title>
+    <mat-card-title>{{ "WELCOME" | translate }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div class="attraction-title">
       <div class="attraction">
-        <span>Nom de l'attraction</span>
-        <span>Description de l'attraction</span>
-        <span>Difficulté de l'attraction / 5</span>
-        <span>Critiques</span>
+        <span>{{ "ATTRACTIONS.NAME" | translate }}</span>
+        <span>{{ "ATTRACTIONS.DESCRIPTION" | translate }}</span>
+        <span>{{ "ATTRACTIONS.DIFFICULTY" | translate }}</span>
+        <span>{{ "ATTRACTIONS.CRITICS" | translate }}</span>
       </div>
     </div>
     <ng-container *ngFor="let attraction of attractions | async;">
@@ -17,7 +17,7 @@
         <span>{{attraction.description}}</span>
         <span>{{attraction.difficulte}} / 5</span>
         <span>
-          <button mat-stroked-button [routerLink]="['/attraction', attraction.attraction_id, 'critique']">Voir</button>
+          <button mat-stroked-button [routerLink]="['/attraction', attraction.attraction_id, 'critique']">{{ "ATTRACTIONS.SEE" | translate }}</button>
         </span>
       </div>
     </ng-container>

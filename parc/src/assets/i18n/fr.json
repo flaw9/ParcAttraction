@@ -1,3 +1,36 @@
 {
-  "TEST": "Coucou"
+  "TITLE": "Parc d'attraction",
+  "WELCOME": "Bienvenue sur le site internet du parc d'attraction",
+  "LANG": "Langues",
+  "ADMIN": {
+    "PAGE": "Page admin",
+    "LOGIN": "Connexion",
+    "LOGOUT": "Déconnexion",
+    "DESCRIPTION": {
+      "1": "Page administrateur pour",
+      "2": "modifier et supprimer des attractions",
+      "ADD": "Ajouter"
+    }
+  },
+  "ATTRACTIONS": {
+    "NAME": "Nom de l'attraction",
+    "DESCRIPTION": "Description de l'attraction",
+    "DIFFICULTY": "Difficulté de l'attraction / 5",
+    "VISIBILITY": "Visible",
+    "CRITICS": "Critiques",
+    "SEE": "Voir",
+    "EDIT": "Modifier",
+    "DELETE": "Supprimer",
+    "AVERAGE": "Note moyenne"
+  },
+  "NAME": "Nom",
+  "DESCRIPTION": "Description",
+  "DIFFICULTY": "Difficulté",
+  "VISIBILITY": "Elément visible",
+  "SAVE": "Sauvegarder",
+  "CRITICS_PAGE": {
+    "WROTE": "a écrit",
+    "TITLE": "Critiques pour l'attraction",
+    "ANONYMOUS": "Anonyme"
+  }
 }

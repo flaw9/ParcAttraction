@@ -1,8 +1,8 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title class="title-container">
-      Critiques pour l'attraction {{ getAttractionName() }} |
-      Note moyenne :
+      {{ "CRITICS_PAGE.TITLE" | translate }} {{ getAttractionName() }} |
+      {{ "ATTRACTIONS.AVERAGE" | translate }} / 20 :
   
       <div class="display" [matTooltip]="mean ?? 0 | number: '1.0-2' | json">
         <div class="progress"></div>
@@ -11,14 +11,14 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <button mat-stroked-button (click)="openDialog()">Ajouter</button>
+    <button mat-stroked-button (click)="openDialog()">{{ "ADMIN.DESCRIPTION.ADD" | translate }}</button>
     <div *ngFor="let critique of critiques" class="critique-block-container">
       <ng-container *ngIf="critique.critique_id !== null">
         <app-critique-block [critique]="critique"></app-critique-block>
         <ng-container *ngIf="isLoggedIn">
           <div class="critique-admin-container">
-            <button mat-stroked-button (click)="openDialog(critique)">Modifier</button>
-            <button mat-stroked-button color="warn" (click)="deleteCritique(critique)">Supprimer</button>
+            <button mat-stroked-button (click)="openDialog(critique)">{{ "ATTRACTIONS.EDIT" | translate }}</button>
+            <button mat-stroked-button color="warn" (click)="deleteCritique(critique)">{{ "ATTRACTIONS.DELETE" | translate }}</button>
           </div>
         </ng-container>
       </ng-container>

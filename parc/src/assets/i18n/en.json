@@ -1,3 +1,36 @@
 {
-  "TEST": "HIIIIIIIIIIIIII Lucas le gros nullard"
+  "TITLE": "Amusement park",
+  "WELCOME": "Welcome to the amusement park",
+  "LANG": "Languages",
+  "ADMIN": {
+    "PAGE": "Admin page",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "DESCRIPTION": {
+      "1": "Admin page to",
+      "2": "modify and delete attractions",
+      "ADD": "Add"
+    }
+  },
+  "ATTRACTIONS": {
+    "NAME": "Attraction name",
+    "DESCRIPTION": "Attraction description",
+    "DIFFICULTY": "Attraction difficulty / 5",
+    "VISIBILITY": "Visible",
+    "CRITICS": "Critics",
+    "SEE": "See",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "AVERAGE": "Average"
+  },
+  "NAME": "Name",
+  "DESCRIPTION": "Description",
+  "DIFFICULTY": "Difficulty",
+  "VISIBILITY": "Visibility",
+  "SAVE": "Save",
+  "CRITICS_PAGE": {
+    "WROTE": "wrote",
+    "TITLE": "Attraction critics",
+    "ANONYMOUS": "Anonymous"
+  }
 }

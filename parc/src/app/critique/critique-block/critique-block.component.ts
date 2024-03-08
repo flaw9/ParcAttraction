@@ -1,17 +1,22 @@
 import {Component, Input} from '@angular/core';
 import {CritiqueInterface} from "../../Interface/critique.interface";
 import {CommonModule} from "@angular/common";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {of} from "rxjs";
 
 @Component({
   selector: 'app-critique-block',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './critique-block.component.html',
   styleUrl: './critique-block.component.scss'
 })
 export class CritiqueBlockComponent {
   
   @Input() critique: CritiqueInterface | undefined;
+  
+  constructor(private translate: TranslateService) {
+  }
 
   isValidCritique() {
     return this.critique?.note !== null && this.critique?.commentaire !== null;
@@ -19,8 +24,8 @@ export class CritiqueBlockComponent {
 
   getDisplayedName() {
     if (!this.critique?.nom && !this.critique?.prenom) {
-      return "Anonyme";
+      return this.translate.get('CRITICS_PAGE.ANONYMOUS');
     }
-    return this.critique?.nom + " " + this.critique?.prenom;
+    return of(this.critique?.nom + " " + this.critique?.prenom);
   }
 }

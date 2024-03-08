@@ -1,14 +1,14 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Page administrateur pour <button mat-button (click)="addAttraction()">Ajouter</button>, modifier et supprimer des attractions</mat-card-title>
+    <mat-card-title>{{ "ADMIN.DESCRIPTION.1" | translate }} <button mat-button (click)="addAttraction()">{{ "ADMIN.DESCRIPTION.ADD" | translate }}</button>{{ "ADMIN.DESCRIPTION.2" | translate }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <div class="attraction-title">
       <div class="attraction">
-        <span>Nom de l'attraction</span>
-        <span>Description de l'attraction</span>
-        <span>Difficulté de l'attraction / 5</span>
-        <span>Visible</span>
+        <span>{{ "ATTRACTIONS.NAME" | translate }}</span>
+        <span>{{ "ATTRACTIONS.DESCRIPTION" | translate }}</span>
+        <span>{{ "ATTRACTIONS.DIFFICULTY" | translate }}</span>
+        <span>{{ "ATTRACTIONS.VISIBILITY" | translate }}</span>
       </div>
     </div>
     <ng-container *ngIf="attractions | async">
@@ -18,23 +18,23 @@
       >
         <div class="attraction">
           <mat-form-field class="champ" appearance="fill">
-            <mat-label>Nom</mat-label>
+            <mat-label>{{ "NAME" | translate }}</mat-label>
             <input matInput formControlName="nom">
           </mat-form-field>
       
           <mat-form-field class="champ" appearance="fill">
-            <mat-label>Description</mat-label>
+            <mat-label>{{ "DESCRIPTION" | translate }}</mat-label>
             <input matInput formControlName="description">
           </mat-form-field>
   
           <mat-form-field class="champ" appearance="fill">
-            <mat-label>Difficulté / 5</mat-label>
+            <mat-label>{{ "DIFFICULTY" | translate }} / 5</mat-label>
             <input matInput formControlName="difficulte" type="number" max="5">
           </mat-form-field>
 
-          <mat-slide-toggle class="champ" formControlName="visible">Element visible</mat-slide-toggle>
+          <mat-slide-toggle class="champ" formControlName="visible">{{ "VISIBILITY" | translate }}</mat-slide-toggle>
 
-          <button mat-button (click)="onSubmit(formulaireAttraction)" class="champ" [disabled]="!formulaireAttraction.dirty">Enregistrer</button>
+          <button mat-button (click)="onSubmit(formulaireAttraction)" class="champ" [disabled]="!formulaireAttraction.dirty">{{ "SAVE" | translate }}</button>
         </div>
       </ng-container>
     </ng-container>

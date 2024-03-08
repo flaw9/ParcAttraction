@@ -1,6 +1,6 @@
 <div *ngIf="isValidCritique()" class="critique-container">
   <span class="critique-name">
-    <b> {{ getDisplayedName() | titlecase }} </b> a écrit :
+    <b> {{ getDisplayedName() | async | titlecase }} </b> {{ "CRITICS_PAGE.WROTE" | translate }} :
   </span>
   <div class="critique-main-block">
     {{ critique?.note }}/20

@@ -1,12 +1,22 @@
 <mat-toolbar>
-  <span><a routerLink="/accueil">Parc d'attraction</a></span>
-  <div *ngIf="authService.isLoggedIn; else disconnected" class="menu">
-    <button mat-stroked-button routerLink="/admin">Page admin</button>
-    <button mat-stroked-button (click)="logout()">Déconnexion</button>
+  <span><a routerLink="/accueil">{{ 'TITLE' | translate }}</a></span>
+  
+  <div class="menu">
+    <div *ngIf="authService.isLoggedIn; else disconnected" class="menu">
+      <button mat-stroked-button routerLink="/admin">{{ "ADMIN.PAGE" | translate }}</button>
+      <button mat-stroked-button (click)="logout()">{{ "ADMIN.LOGOUT" | translate }}</button>
+    </div>
+    <ng-template #disconnected>
+      <button mat-stroked-button routerLink="/login">{{ "ADMIN.LOGIN" | translate }}</button>
+    </ng-template>
+    
+    <button mat-stroked-button [matMenuTriggerFor]="langMenu">{{ "LANG" | translate }}</button>
+    <mat-menu #langMenu='matMenu'>
+      <button mat-menu-item *ngFor="let lang of langs" (click)="changeLang(lang)">
+        {{lang}}
+      </button>
+    </mat-menu>
   </div>
-  <ng-template #disconnected>
-    <button mat-stroked-button routerLink="/login">Connexion</button>
-  </ng-template>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
