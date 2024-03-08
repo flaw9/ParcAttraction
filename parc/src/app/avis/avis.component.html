@@ -5,7 +5,7 @@
   <mat-card-content>
     <ng-container *ngFor="let avi of avis | async;">
       <div class="avis">
-        <h3>{{avi.prenom}} {{avi.nom}} a écrit :</h3> 
+        <h3>{{getName(avi)}} a écrit :</h3> 
         <p> <span style="background-color: lightgray;"> {{avi.note}} / 20 </span> {{avi.texte}}</p>
       </div>
       <hr>

@@ -52,4 +52,10 @@ export class AvisComponent implements OnInit {
     });
   }
 
+  getName(avis: any) {
+    if(avis.nom == "" && avis.prenom == "") {
+      return "Anonyme"
+    }
+    return avis?.prenom + " " + avis?.nom
+  }
 }
