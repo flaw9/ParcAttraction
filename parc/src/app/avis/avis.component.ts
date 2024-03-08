@@ -30,7 +30,6 @@ export class AvisComponent implements OnInit {
   ngOnInit(): void {
     this.attraction_id = +this.route.snapshot.params['id'];
     this.avis = this.avisService.getAvisFromAttraction(this.attraction_id);
-    console.log(this.avis)
   }
 
   getAvis() {

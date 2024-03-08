@@ -16,8 +16,8 @@ def add_avis(data):
       req.insert_in_db(requete)
       id = data['avis_id']
     else:
-      requete = "INSERT INTO avis (texte, note, nom, prenom) VALUES (?, ?, ?, ?);"
-      id = req.insert_in_db(requete, (data["texte"], data["note"], data["nom"], data["prenom"]))
+      requete = "INSERT INTO avis (texte, note, nom, prenom, attraction_id) VALUES (?, ?, ?, ?, ?);"
+      id = req.insert_in_db(requete, (data["texte"], data["note"], data["nom"], data["prenom"], data["attraction_id"]))
 
     return id
 
