@@ -1,23 +1,14 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Avis de l'attraction</mat-card-title>
-    <button mat-button (click)="openDialog()"> Ajouter</button>
+    <mat-card-title>Avis de l'attraction <button mat-button (click)="openDialog()"> Ajouter</button> </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <div class="attraction-title">
-      <div class="attraction">
-        <span>Nom de l'attraction</span>
-        <span>Description de l'attraction</span>
-        <span>Difficulté de l'attraction / 5</span>
-        <span>Regarder les critiques</span>
-      </div>
-    </div>
     <ng-container *ngFor="let avi of avis | async;">
       <div class="avis">
-        <span>{{avi.prenom}}</span>
-        <span>{{avi.nom}}</span>
-        <span>{{avi.texte}}</span>
+        <h3>{{avi.prenom}} {{avi.nom}} a écrit :</h3> 
+        <p> <span style="background-color: lightgray;"> {{avi.note}} / 20 </span> {{avi.texte}}</p>
       </div>
+      <hr>
     </ng-container>
   </mat-card-content>
 </mat-card>
