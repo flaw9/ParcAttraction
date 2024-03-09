@@ -32,5 +32,17 @@
     "WROTE": "wrote",
     "TITLE": "Attraction critics",
     "ANONYMOUS": "Anonymous"
+  },
+  "CRITIC_DIALOG": {
+    "TITLE": "Add a critic",
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "COMMENT": "Comment",
+    "RATING": "Rating",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "OPTIONAL": "Optional",
+    "RATING_ERROR": "Rating must be between 0 and 20",
+    "COMMENT_ERROR": "Comment is required"
   }
 }

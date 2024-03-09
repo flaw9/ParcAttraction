@@ -1,28 +1,28 @@
-<h2 mat-dialog-title>Ajout d'une critique</h2>
+<h2 mat-dialog-title>{{ "CRITIC_DIALOG.TITLE" | translate }}</h2>
 
 <mat-dialog-content>
   <form [formGroup]="formControl" class="dialog-form">
     <mat-form-field appearance="fill">
-      <mat-label>Note / 20</mat-label>
+      <mat-label>{{ "CRITIC_DIALOG.RATING" | translate }} / 20</mat-label>
       <input matInput type="number" formControlName="note" required>
-      <mat-error *ngIf="formControl.get('note')?.invalid">La note doit être être comprise entre 0 et 20</mat-error>
+      <mat-error *ngIf="formControl.get('note')?.invalid">{{ "CRITIC_DIALOG.RATING_ERROR" | translate }}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Commentaire</mat-label>
+      <mat-label>{{ "CRITIC_DIALOG.COMMENT" | translate }}</mat-label>
       <input matInput formControlName="commentaire" required>
-      <mat-error *ngIf="formControl.get('commentaire')?.invalid">Le commentaire est obligatoire</mat-error>
+      <mat-error *ngIf="formControl.get('commentaire')?.invalid">{{ "CRITIC_DIALOG.COMMENT_ERROR" | translate }}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Nom (Optionnel)</mat-label>
+      <mat-label>{{ "CRITIC_DIALOG.NAME" | translate }} ({{ "CRITIC_DIALOG.OPTIONAL" | translate }})</mat-label>
       <input matInput formControlName="nom">
     </mat-form-field>
     <mat-form-field appearance="fill">
-      <mat-label>Prénom (Optionnel)</mat-label>
+      <mat-label>{{ "CRITIC_DIALOG.SURNAME" | translate }} ({{ "CRITIC_DIALOG.OPTIONAL" | translate }})</mat-label>
       <input matInput formControlName="prenom">
     </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-dialog-close mat-button>Annuler</button>
-  <button mat-dialog-actions mat-button (click)="submit()" [disabled]="formControl.invalid">Ajouter</button>
+  <button mat-dialog-close mat-button>{{ "CRITIC_DIALOG.CANCEL" | translate }}</button>
+  <button mat-dialog-actions mat-button (click)="submit()" [disabled]="formControl.invalid">{{ "ADMIN.DESCRIPTION.ADD" | translate }}</button>
 </mat-dialog-actions>
