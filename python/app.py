@@ -70,9 +70,20 @@ def getCritiqueForAttraction(index):
     if (len(result) > 0):
         total = 0
         for crit in result:
-            total += crit["note"]
+            if (crit["note"] is not None):
+                total += crit["note"]
         mean = total / len(result)
         result = {"mean": mean, "critiques": result}
+
+    return result, 200
+
+@app.get('/attraction/<int:index>/critique/mean')
+def getMeanCritiqueForAttraction(index):
+    if (index < 0):
+        return jsonify({"message": "Index incorrect."}), 400
+
+    result = critique.get_mean_note_for_attraction(index)
+    result = str(result) if result is not None else "0"
 
     return result, 200
 

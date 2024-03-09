@@ -40,4 +40,8 @@ export class AttractionService {
     const data = this.dataService.postData(this.url + "/critique", critique);
     return data as Observable<MessageInterface>;
   }
+
+  getMeanAttraction(attraction_id: number): Observable<any> {
+    return this.dataService.getData(this.url + "/" + attraction_id + "/critique/mean");
+  }
 }

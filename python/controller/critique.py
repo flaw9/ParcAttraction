@@ -17,7 +17,7 @@ def get_critique(id):
         return []
 
 def add_critique(data):
-    if (not "note" in data or data["note"] is None):
+    if (not "note" in data or data["note"] is None or data["note"] < 0 or data["note"] > 5):
         return False
 
     if (not "commentaire" in data or data["commentaire"] == ""):
@@ -58,3 +58,12 @@ def get_critique_for_attraction(id):
     json = req.select_from_db(query, (id,))
 
     return json
+
+def get_mean_note_for_attraction(id):
+    if (not id):
+        return False
+
+    query = "SELECT AVG(note) as moyenne FROM critique WHERE attraction_id = ?;"
+    json = req.select_from_db(query, (id,))
+
+    return json[0]["moyenne"]
