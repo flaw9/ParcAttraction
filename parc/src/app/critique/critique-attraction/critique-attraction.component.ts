@@ -13,13 +13,14 @@ import {CritiqueService} from "../../Service/critique.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MatTooltip} from "@angular/material/tooltip";
 import {TranslateModule} from "@ngx-translate/core";
+import {StarComponent} from "../star/star.component";
 
 // Page comportant les critiques pour une attraction donnée
 @Component({
   selector: 'app-critique-attraction',
   standalone: true,
   imports: [
-    MatCardModule, CommonModule, CritiqueBlockComponent, MatButton, MatDialogModule, MatTooltip, TranslateModule
+    MatCardModule, CommonModule, CritiqueBlockComponent, MatButton, MatDialogModule, MatTooltip, TranslateModule, StarComponent
   ],
   templateUrl: './critique-attraction.component.html',
   styleUrl: './critique-attraction.component.scss'

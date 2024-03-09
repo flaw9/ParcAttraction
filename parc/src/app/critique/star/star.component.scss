@@ -1,0 +1,15 @@
+mat-icon {
+  color: gold;
+  font-size: 30px;
+  
+  &.pointer {
+    cursor: pointer;
+  }
+}
+
+.star-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 10px;
+}

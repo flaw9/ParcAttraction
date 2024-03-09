@@ -3,11 +3,12 @@ import {CritiqueInterface} from "../../Interface/critique.interface";
 import {CommonModule} from "@angular/common";
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {of} from "rxjs";
+import {StarComponent} from "../star/star.component";
 
 @Component({
   selector: 'app-critique-block',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, StarComponent],
   templateUrl: './critique-block.component.html',
   styleUrl: './critique-block.component.scss'
 })

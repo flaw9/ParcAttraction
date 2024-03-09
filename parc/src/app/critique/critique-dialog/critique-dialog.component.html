@@ -2,11 +2,11 @@
 
 <mat-dialog-content>
   <form [formGroup]="formControl" class="dialog-form">
-    <mat-form-field appearance="fill">
-      <mat-label>{{ "CRITIC_DIALOG.RATING" | translate }} / 20</mat-label>
-      <input matInput type="number" formControlName="note" required>
+    <div class="star-form">
+      <mat-label>{{ "CRITIC_DIALOG.RATING" | translate }} / 5</mat-label>
+      <app-star [readonly]="false" (ratingChange)="changeNote($event)" [rating]="formControl.get('note')?.value"></app-star>
       <mat-error *ngIf="formControl.get('note')?.invalid">{{ "CRITIC_DIALOG.RATING_ERROR" | translate }}</mat-error>
-    </mat-form-field>
+    </div>
     <mat-form-field appearance="fill">
       <mat-label>{{ "CRITIC_DIALOG.COMMENT" | translate }}</mat-label>
       <input matInput formControlName="commentaire" required>

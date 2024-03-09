@@ -1,0 +1,7 @@
+<div [matTooltip]="(rating | number:'1.0-2') ?? '0'" class="star-container">
+  <mat-icon
+    *ngFor="let numStar of _numStars"
+    [fontIcon]="getIcon(numStar)"
+    [class.pointer] = "!readonly"
+    (click)="setRating(numStar)"></mat-icon>
+</div>

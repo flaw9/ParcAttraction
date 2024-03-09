@@ -2,12 +2,9 @@
   <mat-card-header>
     <mat-card-title class="title-container">
       {{ "CRITICS_PAGE.TITLE" | translate }} {{ getAttractionName() }} |
-      {{ "ATTRACTIONS.AVERAGE" | translate }} / 20 :
+      {{ "ATTRACTIONS.AVERAGE" | translate }} :
   
-      <div class="display" [matTooltip]="mean ?? 0 | number: '1.0-2' | json">
-        <div class="progress"></div>
-        <div class="progress_1" [style.background-size]="100 - (mean ?? 0) * 5 + '% 100%, 100% 100%'"></div>
-      </div>
+      <app-star [rating]="mean ?? 0"></app-star> | {{ mean ?? 0 }}
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>

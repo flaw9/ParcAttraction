@@ -15,31 +15,3 @@
   align-items: center;
   margin-bottom: 10px;
 }
-
-.progress {
-    position: absolute;
-    height: 7px;
-    width: 100%;
-    background-image:
-        linear-gradient(90deg, rgba(255, 0, 0, 1) 0%, rgba(255, 242, 0, 1) 50%, rgba(0, 255, 0, 1) 100%);
-    background-size: 100% 100%, 100% 100%;
-    background-repeat: no-repeat;
-}
-
-
-.progress_1 {
-    position: absolute;
-    height: 8px;
-    width: 100%;
-    background-image:
-        linear-gradient(rgb(255, 255, 255), #ccc);
-    transform: rotate(180deg);
-    background-repeat: no-repeat;
-}
-
-.display {
-    position: relative;
-    width: 15vw;
-    height: 7px;
-    margin: 0 10px;
-}

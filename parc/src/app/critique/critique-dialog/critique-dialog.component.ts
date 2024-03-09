@@ -7,6 +7,7 @@ import {MatInput} from "@angular/material/input";
 import {NgIf} from "@angular/common";
 import {AttractionService} from "../../Service/attraction.service";
 import {TranslateModule} from "@ngx-translate/core";
+import {StarComponent} from "../star/star.component";
 
 @Component({
   selector: 'app-critique-dialog',
@@ -18,14 +19,15 @@ import {TranslateModule} from "@ngx-translate/core";
     ReactiveFormsModule,
     MatInput,
     NgIf,
-    TranslateModule
+    TranslateModule,
+    StarComponent
   ],
   templateUrl: './critique-dialog.component.html',
   styleUrl: './critique-dialog.component.scss'
 })
 export class CritiqueDialogComponent implements OnInit {
   public formControl: FormGroup = new FormGroup({
-    note: new FormControl('', [Validators.required, Validators.min(0), Validators.max(20)]),
+    note: new FormControl(1, [Validators.required, Validators.min(0), Validators.max(5)]),
     commentaire: new FormControl('', [Validators.required]),
     nom: new FormControl(''),
     prenom: new FormControl(''),
@@ -53,5 +55,9 @@ export class CritiqueDialogComponent implements OnInit {
     this.attractionService.postCritique(this.formControl.value).subscribe((res) => {
       this.dialogRef.close( { data: res });
     });
+  }
+  
+  public changeNote(note: number) {
+    this.formControl.get('note')?.setValue(note);
   }
 }

@@ -16,8 +16,9 @@
         <span>{{attraction.nom}}</span>
         <span>{{attraction.description}}</span>
         <span>{{attraction.difficulte}} / 5</span>
-        <span>
+        <span class="critique-column">
           <button mat-stroked-button [routerLink]="['/attraction', attraction.attraction_id, 'critique']">{{ "ATTRACTIONS.SEE" | translate }}</button>
+          <app-star [rating]="means.get(attraction.attraction_id ?? -1) | async"></app-star>
         </span>
       </div>
     </ng-container>

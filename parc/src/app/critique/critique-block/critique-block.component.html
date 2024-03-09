@@ -1,9 +1,9 @@
 <div *ngIf="isValidCritique()" class="critique-container">
   <span class="critique-name">
-    <b> {{ getDisplayedName() | async | titlecase }} </b> {{ "CRITICS_PAGE.WROTE" | translate }} :
+    <b> {{ getDisplayedName() | async | titlecase }}&nbsp; </b> {{ "CRITICS_PAGE.WROTE" | translate }} :
+    <app-star [rating]="critique?.note ?? 0"></app-star>
   </span>
   <div class="critique-main-block">
-    {{ critique?.note }}/20
     {{ critique?.commentaire }}
   </div>
 </div>
