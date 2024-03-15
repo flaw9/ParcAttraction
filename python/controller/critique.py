@@ -26,6 +26,10 @@ def add_critique(data):
     if (not "attraction_id" in data or data["attraction_id"] is None or data["attraction_id"] == "-1"):
         return False
 
+    json = req.select_from_db("SELECT * FROM attraction WHERE attraction_id = ?", (data["attraction_id"],))
+    if len(json) == 0:
+        return False
+
     if ("critique_id" in data and data["critique_id"]):
         requete = "UPDATE critique SET note=?, commentaire=?, attraction_id=?, nom=?, prenom=? WHERE critique_id = ?"
         req.insert_in_db(requete, (data["note"], data["commentaire"], data["attraction_id"], data["nom"], data["prenom"], data["critique_id"]))
