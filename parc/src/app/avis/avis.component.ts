@@ -22,8 +22,7 @@ export class AvisComponent implements OnInit {
   public attraction_id : any
   public avis: Observable<AvisInterface[]> | undefined
   constructor(private route: ActivatedRoute, 
-              private avisService: AvisService, 
-              private FormAvisPopupService : FormAvisPopupService,
+              private avisService: AvisService,
               private dialog: MatDialog,
               private snackBar: MatSnackBar) {}
 
