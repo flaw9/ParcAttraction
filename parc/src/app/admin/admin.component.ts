@@ -3,14 +3,14 @@ import {Observable, tap} from 'rxjs';
 import {AttractionInterface} from '../Interface/attraction.interface';
 import {AttractionService} from '../Service/attraction.service';
 import {CommonModule} from '@angular/common';
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
-import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-admin',
@@ -43,8 +43,6 @@ export class AdminComponent {
     }));
 
   public onSubmit(attractionFormulaire: FormGroup) {
-    console.log(attractionFormulaire)
-
     if (attractionFormulaire.invalid) {
       this._snackBar.open("Erreur dans les champs");
       return;

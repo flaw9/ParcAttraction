@@ -17,7 +17,6 @@ def encode_auth_token(user_id):
             key,
             algorithm='HS256'
         )
-        print("'"+testjwt+"'", flush=True)
         return testjwt
     except Exception as e:
         return e
@@ -27,17 +26,14 @@ def decode_auth_token(auth_token):
         payload = jwt.decode(auth_token, key, algorithms=['HS256'])
         return True
     except jwt.ExpiredSignatureError as e:
-        print(e, flush=True)
         return 'Le token a expiré. Veuillez-vous reconnecter.'
     except jwt.InvalidTokenError as e:
-        print(e, flush=True)
         return 'Le token est invalide. Veuillez-vous reconnecter.'
 
 # Fonction vérif token
 def check_token(request):
     if ('Authorization' in request.headers):
         token = request.headers['Authorization']
-        print("token entier '"+token+"'", flush=True)
         if (token != ""):
             token = token.replace('Token ', '').replace('"', '')
 

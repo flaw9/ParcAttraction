@@ -1,7 +1,6 @@
 import request.request as req
 
 def add_attraction(data):
-    print(data, flush=True)
     if (not "nom" in data or data["nom"] == ""):
         return False
     

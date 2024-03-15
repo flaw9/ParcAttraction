@@ -16,7 +16,6 @@ def hello_world():
 # Attraction
 @app.post('/attraction')
 def addAttraction():
-    print("okok", flush=True)
     # Fonction vérif token
     checkToken = user.check_token(request)
     if (checkToken != True):
