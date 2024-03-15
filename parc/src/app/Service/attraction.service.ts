@@ -26,4 +26,13 @@ export class AttractionService {
     const data = { visible }; 
     return this.dataService.putData(url, data) as Observable<MessageInterface>;
   }
+  public getCritique(attraction_id: number): Observable<CritiqueMeanInterface> {
+    const data = this.dataService.getData(this.url + "/" + attraction_id + "/critique");
+    return data as Observable<CritiqueMeanInterface>;
+  }
+  
+  public postCritique(critique: CritiqueInterface): Observable<MessageInterface> {
+    const data = this.dataService.postData(this.url + "/critique", critique);
+    return data as Observable<MessageInterface>;
+  }
 }
