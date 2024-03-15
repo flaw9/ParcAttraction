@@ -57,14 +57,14 @@ export class AdminComponent {
   }
 
   public addAttraction() {
-    const group = new FormGroup({
-      attraction_id: new FormControl(),
-      nom: new FormControl("", [Validators.required]),
-      description: new FormControl("", [Validators.required]),
-      difficulte: new FormControl(),
-      visible: new FormControl(true)
-    });
-    group.markAsDirty()
-    this.formulaireAttractions.push(group);
+    this.formulaireAttractions.push(
+      new FormGroup({
+        attraction_id: new FormControl(),
+        nom: new FormControl("", [Validators.required]),
+        description: new FormControl("", [Validators.required]),
+        difficulte: new FormControl(),
+        visible: new FormControl(true)
+      })
+    );
   }
 }
