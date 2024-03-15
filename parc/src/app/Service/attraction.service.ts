@@ -41,7 +41,12 @@ export class AttractionService {
     return data as Observable<MessageInterface>;
   }
 
-  getMeanAttraction(attraction_id: number): Observable<any> {
+  public getMeanAttraction(attraction_id: number): Observable<any> {
     return this.dataService.getData(this.url + "/" + attraction_id + "/critique/mean");
+  }
+  
+  public deleteAttraction(attraction_id: number): Observable<MessageInterface> {
+    const data = this.dataService.deleteData(this.url + "/" + attraction_id);
+    return data as Observable<MessageInterface>;
   }
 }

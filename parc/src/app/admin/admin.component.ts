@@ -67,4 +67,16 @@ export class AdminComponent {
       })
     );
   }
+
+  deleteAttraction(indexForm: number) {
+    const id = this.formulaireAttractions[indexForm].get('attraction_id')?.value;
+    this.attractionService.deleteAttraction(id).subscribe(
+      result => {
+        this._snackBar.open(result.message, undefined, {
+          duration: 1000
+        });
+        this.formulaireAttractions.splice(indexForm, 1);
+      }
+    );
+  }
 }

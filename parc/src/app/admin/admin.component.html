@@ -34,7 +34,10 @@
 
           <mat-slide-toggle class="champ" formControlName="visible">{{ "VISIBILITY" | translate }}</mat-slide-toggle>
 
-          <button mat-button (click)="onSubmit(formulaireAttraction)" class="champ" [disabled]="!formulaireAttraction.dirty">{{ "SAVE" | translate }}</button>
+          <div class="flex-column">
+            <button mat-button (click)="onSubmit(formulaireAttraction)" class="champ" [disabled]="!formulaireAttraction.dirty">{{ "SAVE" | translate }}</button>
+            <button mat-button (click)="deleteAttraction(indexForm)" class="champ">{{ "ATTRACTIONS.DELETE" | translate }}</button>
+          </div>
         </div>
       </ng-container>
     </ng-container>
